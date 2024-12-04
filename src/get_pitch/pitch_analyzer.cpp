@@ -10,8 +10,15 @@ using namespace std;
 namespace upc {
   void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
 
+    
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
+      /// \FET AUTOCORRELACIO CALCULADA
+      r[l]= 0;
+      for(unsigned int n = l; n < x.size(); n++){
+        r[l] += x[n]*x[n-l];
+      }
+      r[l] = r[l]/x.size();  
     }
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
@@ -27,6 +34,7 @@ namespace upc {
     switch (win_type) {
     case HAMMING:
       /// \TODO Implement the Hamming window
+      /// Es completamente irrelevante. Senyal peridica envantandada siempre con uno rectangular.
       break;
     case RECT:
     default:
@@ -50,7 +58,11 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
-    return true;
+    //cerr << rmaxnorm << "\t" << this->llindar_rmax << "\n"; 
+    if (rmaxnorm <  this->llindar_rmax){
+      return true; //SORDO
+    }
+    return false; //SONORO
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
@@ -69,14 +81,23 @@ namespace upc {
     vector<float>::const_iterator iR = r.begin(), iRMax = iR;
 
     /// \TODO 
+
+  ///Localizar el valor maximo, dentro del margen 1/500 Hz y 1/50 Hz
 	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
 	/// Choices to set the minimum value of the lag are:
 	///    - The first negative value of the autocorrelation.
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
+    float rMax = r[npitch_min];
+    unsigned int lag = npitch_min;
 
-    unsigned int lag = iRMax - r.begin();
+    for(unsigned int l = npitch_min; l < npitch_max; l++){
+      if(r[l]>rMax){
+        lag = l;
+        rMax = r[l];
+      }
+    }
 
     float pot = 10 * log10(r[0]);
 
@@ -87,7 +108,6 @@ namespace upc {
     if (r[0] > 0.0F)
       cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;
 #endif
-    
     if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))
       return 0;
     else
