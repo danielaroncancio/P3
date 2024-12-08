@@ -136,7 +136,7 @@ Hemos implementado el filtro de mediana de orden 3. Hemos probado con orden 2 y 
   Con M=5, mejoramos un poco pero sigue siendo peor que M=3:
   ![image](https://github.com/user-attachments/assets/932d0609-4efb-438b-929a-b4051b84f368)
 
-Podemos concluir que los de orden par, al no tener un valor central el filtro no funciona muy bien, pero en los impares sí que funciona mejor, no obstante es mejor coger un valor de orden 3.
+Podemos concluir que los de orden par, al no tener un valor central el filtro no funciona muy bien, pero en los impares sí que funciona mejor, y el valor óptimo es de orden 3.
 
 
    
