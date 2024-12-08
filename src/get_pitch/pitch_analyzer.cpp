@@ -54,15 +54,47 @@ namespace upc {
       npitch_max = frameLen/2;
   }
 
-  bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm) const {
+  bool PitchAnalyzer::unvoiced(float pot, float r1norm, float rmaxnorm, float ZCR) const {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
     //cerr << rmaxnorm << "\t" << this->llindar_rmax << "\n"; 
-    if (rmaxnorm <  this->llindar_rmax){
-      return true; //SORDO
+    /// FET
+    float score = 0;
+    const float potvalue = -46, r1value = 0.5, zcrvalue= 0.1;
+    if (pot < potvalue)
+      score += 0.5;
+    else if (r1norm < r1value)
+      score += 0.5;
+    else if (rmaxnorm < this->llindar_rmax)
+      score += 0.5;
+    
+    if (ZCR > zcrvalue)
+      score += 0.5;
+
+    if (score >= 1)
+      return true;
+    else
+      return false;
+    
+    // if (rmaxnorm <  this->llindar_rmax){
+    //   return true; //SORDO
+    // }
+    // return false; //SONORO
+  }
+
+  //calul del ZCR
+  float PitchAnalyzer::compute_zcr(const vector<float> &x) const {
+    float suma=0;
+    unsigned int N= x.size();
+    
+     for(int i=1; i<N; i++){
+        if((x[i-1]>=0 && x[i]<=0)||(x[i-1]<=0 && x[i]>=0)){
+        suma=suma+1;
+        }
+        
     }
-    return false; //SONORO
+    return (float) (suma)/(2*(N));
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
@@ -78,6 +110,9 @@ namespace upc {
     //Compute correlation
     autocorrelation(x, r);
 
+    //Compute ZCR
+    float ZCR= compute_zcr(x);
+
     vector<float>::const_iterator iR = r.begin(), iRMax = iR;
 
     /// \TODO 
@@ -89,6 +124,8 @@ namespace upc {
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
+  /// FET
+
     float rMax = r[npitch_min];
     unsigned int lag = npitch_min;
 
@@ -108,7 +145,7 @@ namespace upc {
     if (r[0] > 0.0F)
       cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;
 #endif
-    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0]))
+    if (unvoiced(pot, r[1]/r[0], r[lag]/r[0], ZCR))
       return 0;
     else
       return (float) samplingFreq/(float) lag;

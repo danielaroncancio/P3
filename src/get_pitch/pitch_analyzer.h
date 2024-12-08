@@ -40,11 +40,16 @@ namespace upc {
 	/// Returns the pitch (in Hz) of input frame x
 	///
     float compute_pitch(std::vector<float> & x) const;
-	
+
 	///
 	/// Returns true is the frame is unvoiced
 	///
-    bool unvoiced(float pot, float r1norm, float rmaxnorm) const;
+    bool unvoiced(float pot, float r1norm, float rmaxnorm, float ZCR) const;
+
+  ///
+  /// Calcul del ZCR
+  ///
+    float compute_zcr(const std::vector<float> &x) const;
 
 
   public:

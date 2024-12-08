@@ -40,6 +40,7 @@ int main(int argc, const char *argv[]) {
 	/// \TODO 
 	///  Modify the program syntax and the call to **docopt()** in order to
 	///  add options and arguments to the program.
+
     std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
         {argv + 1, argv + argc},	// array of arguments, without the program name
         true,    // show help if requested
@@ -65,7 +66,16 @@ int main(int argc, const char *argv[]) {
 
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
-  /// central-clipping or low pass filtering may be used.
+  /// central-clipping or low pass filtering may be used. DONE
+
+  float max_val= *max_element(x.begin(),x.end());
+  //Filtre Center Clipping
+  for(unsigned int i=0; i< x.size();i++){
+    if(abs(x[i])/max_val<0.01){
+      x[i]=0.0;
+    }
+  }
+  
   
   // Iterate for each frame and save values in f0 vector
   vector<float>::iterator iX;
@@ -79,6 +89,19 @@ int main(int argc, const char *argv[]) {
   ///Es muy facil hacerlo mal. Es muy facil hacerlo recursivo xd 
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
+
+  unsigned int M = 3;
+  vector<float> filtre_mediana(M);
+
+  for (unsigned int i = (M-1)/2; i < f0.size() - (M-1)/2; i++){
+    for (unsigned m = 0; m < M; m++){
+      filtre_mediana[m]=f0[i+m-((M-1)/2)];
+    }
+    sort(filtre_mediana.begin(),filtre_mediana.end()); //ordenem els valors
+
+    f0[i]=filtre_mediana[(M-1)/2]; //agafem el valor del centre
+  }
+
 
   // Write f0 contour into the output file
   ofstream os(output_txt);
