@@ -34,7 +34,13 @@ Hemos hecho la implentación en MATLAB.
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+![Captura de pantalla 2024-12-08 a les 20 50 24](https://github.com/user-attachments/assets/10669bb0-6a09-4d11-a306-639f2578e9be)
+
+
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+     
+![Captura de pantalla 2024-12-08 a les 20 51 41](https://github.com/user-attachments/assets/5c3349f3-e7a1-4e24-8f7a-604447b0b2b0)
+
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
 
