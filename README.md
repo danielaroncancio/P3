@@ -126,6 +126,9 @@ Hemos implementado el filtro de mediana de orden 3. Hemos probado con orden 2 y 
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el estimador, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
+    
+![Captura de pantalla 2024-12-08 a les 21 00 10](https://github.com/user-attachments/assets/49273f9b-9487-4f30-842c-4121e93ad65f)
+
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS%20Techniques.pdf)
