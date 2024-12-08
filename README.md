@@ -126,6 +126,19 @@ Hemos implementado el filtro de mediana de orden 3. Hemos probado con orden 2 y 
   También se valorará la realización de un estudio de los parámetros involucrados. Por ejemplo, si se opta
   por implementar el filtro de mediana, se valorará el análisis de los resultados obtenidos en función de
   la longitud del filtro.
+
+  Con un filtro de mediana de orden 2 (M=2) obtenemos:
+  ![image](https://github.com/user-attachments/assets/0ba649ef-a3f3-45ec-b5dd-f20104313405)
+
+  Y con M=4:
+  ![image](https://github.com/user-attachments/assets/8bc08b47-2fb6-48ef-a71b-f4c35a9dcd19)
+
+  Con M=5, mejoramos un poco pero sigue siendo peor que M=3:
+  ![image](https://github.com/user-attachments/assets/932d0609-4efb-438b-929a-b4051b84f368)
+
+Podemos concluir que los de orden par, al no tener un valor central el filtro no funciona muy bien, pero en los impares sí que funciona mejor, no obstante es mejor coger un valor de orden 3.
+
+
    
 
 Evaluación *ciega* del estimador
