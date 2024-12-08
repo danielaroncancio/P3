@@ -24,6 +24,10 @@ Ejercicios básicos
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
+![Captura de pantalla 2024-12-08 a les 19 01 17](https://github.com/user-attachments/assets/662c3a67-2dd2-42da-950d-56c91252c0aa)
+Hemos hecho la implentación en MATLAB.
+![Captura de pantalla 2024-12-08 a les 19 09 29](https://github.com/user-attachments/assets/15fa1745-4ded-4400-a706-eb6cd81e8326)
+
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
