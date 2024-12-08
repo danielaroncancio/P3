@@ -74,6 +74,11 @@ Podemos ver que el pitch obtenido por nuestro sistema añade ceros en las tramas
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 
+Con llindar_rmax = 0.4 (introducido desde la terminal) nos sale este resultado.
+
+![image](https://github.com/user-attachments/assets/4c23c3b5-b8c3-4382-b838-8e75b8100dea)
+
+
 Ejercicios de ampliación
 ------------------------
 
@@ -86,6 +91,9 @@ Ejercicios de ampliación
 
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
+![image](https://github.com/user-attachments/assets/6043ca85-5e15-4637-99a3-a7f2b64d7119)
+    ![image](https://github.com/user-attachments/assets/82d56005-d030-4038-a1e5-e4e077395939)
+
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de estimación
   de pitch.
