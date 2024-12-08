@@ -67,8 +67,7 @@ Ejercicios básicos
 	 	el uso de alternativas de mayor calidad (particularmente Python).
 
 Podemos ver que el pitch obtenido por nuestro sistema añade ceros en las tramas sordas. No obstante, hay algunas tramas sonoras que les asigna pitch nulo y no es correcto.
-![image](https://github.com/user-attachments/assets/fbea5f87-aca3-47fa-9c62-0d7ec69e2b69)
-
+![image](https://github.com/user-attachments/assets/15ea07c7-9420-4b0f-bcf0-0720b993b46c)
 
   
   * Optimice los parámetros de su sistema de estimación de pitch e inserte una tabla con las tasas de error
