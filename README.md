@@ -65,6 +65,11 @@ Ejercicios básicos
      
 		Aunque puede usar el propio Wavesurfer para obtener la representación, se valorará
 	 	el uso de alternativas de mayor calidad (particularmente Python).
+
+Podemos ver que el pitch obtenido por nuestro sistema añade ceros en las tramas sordas. No obstante, hay algunas tramas sonoras que les asigna pitch nulo y no es correcto.
+![image](https://github.com/user-attachments/assets/fbea5f87-aca3-47fa-9c62-0d7ec69e2b69)
+
+
   
   * Optimice los parámetros de su sistema de estimación de pitch e inserte una tabla con las tasas de error
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
