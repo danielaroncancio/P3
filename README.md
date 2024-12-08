@@ -48,6 +48,17 @@ Ejercicios básicos
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
 
+1. rmaxnorm
+2. r1norm
+3. Potencia
+4. Taza de cruces por cero, ZCR
+   
+![features_15ms](https://github.com/user-attachments/assets/bc53c7ce-faac-4fe1-8dca-8c61f0a53729)
+
+![zcr](https://github.com/user-attachments/assets/814970c7-e773-4c5a-b614-430a080307c9)
+
+
+
       - Use el estimador de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
 		ilustrativa del resultado de ambos estimadores.
