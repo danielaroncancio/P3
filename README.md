@@ -101,7 +101,15 @@ Ejercicios de ampliación
   Entre las posibles mejoras, puede escoger una o más de las siguientes:
 
   * Técnicas de preprocesado: filtrado paso bajo, diezmado, *center clipping*, etc.
+Hemos escogido la técnica de *center clipping* con un threshold de 0.01 (ponemos a 0 aquellos valores inferiores a 0.01). Hemos probado con 0.009, 0.008 y 0.015 pero no habia mejoras en el resultado TOTAL.
+
+![image](https://github.com/user-attachments/assets/bc52a211-b10b-49d6-b17b-b7f071563550)
+
+
   * Técnicas de postprocesado: filtro de mediana, *dynamic time warping*, etc.
+Hemos implementado el filtro de mediana de orden 3. Hemos probado con orden 2 y 4 pero los resultados no eran tan buenos.
+    ![image](https://github.com/user-attachments/assets/2c501f17-1758-453c-b3d3-46729d6afcc0)
+
   * Métodos alternativos a la autocorrelación: procesado cepstral, *average magnitude difference function*
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el estimador, en concreto, de los que
