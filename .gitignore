@@ -1,5 +1,9 @@
 /build
-/pitch_db/test
+
+# Ignore all files in db except readme
+pitch_db/
+!pitch_db/Readme_pitch_eval.txt
+
 .vscode/
 __MAC*
 *DS_Store
