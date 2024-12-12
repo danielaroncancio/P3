@@ -135,7 +135,7 @@ float score = 0;
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
-      float pot = 10 * log10(r[0]);
+    float pot = 10 * log10(r[0]);
     float rMax = r[npitch_min];
     unsigned int lag = npitch_min;
     float r1norm = r[1] / r[0];
