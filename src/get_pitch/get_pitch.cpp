@@ -25,7 +25,7 @@ Usage:
     get_pitch --version
 
 Options:
-    --llindar-rmax FLOAT  llindar de decisió sonor/sord per al màxim secundari de l'autocorrelacio [default: 0.5]
+    --llindar-rmax FLOAT  llindar de decisio sonor, sord per a rmax [default: 0.5] 
     -h, --help  Show this screen
     --version   Show the version of the project
 
@@ -61,7 +61,7 @@ int main(int argc, const char *argv[]) {
   int n_shift = rate * FRAME_SHIFT;
 
   // Define analyzer
-  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500, llindar_rmax); //añadido argumento rMax
+  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500, llindar_rmax); // añadir argumento rMax
 
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
@@ -84,6 +84,7 @@ int main(int argc, const char *argv[]) {
   }
 
   /// \TODO
+  ///Es muy facil hacerlo mal. Es muy facil hacerlo recursivo xd 
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
   /// \DONE

@@ -21,7 +21,6 @@ namespace upc {
 		RECT, 						///< Rectangular window
 		HAMMING						///< Hamming window
 	};
-  
     void set_window(Window type); ///< pre-compute window
 
   private:
@@ -58,7 +57,7 @@ namespace upc {
 					Window w=PitchAnalyzer::HAMMING,	///< Window type
 					float min_F0 = MIN_F0,		///< Pitch range should be restricted to be above this value
 					float max_F0 = MAX_F0,		///< Pitch range should be restricted to be below this value
-          float llindar_rmax_ = 0.5  
+          float llindar_rmax_ = 0.5
 				 )
 	{
       frameLen = fLen;
