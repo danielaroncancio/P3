@@ -110,14 +110,14 @@ float score = 0;
     autocorrelation(x, r);
 
      // Guardar señal del frame
-    ofstream frame_file("frame_signal.txt", ios::app);
+    ofstream frame_file("frame_signal.txt");
     for (float sample : x) {
         frame_file << sample << '\n';
     }
     frame_file.close();
 
     // Guardar autocorrelación
-    ofstream autocorr_file("autocorrelation.txt", ios::app);
+    ofstream autocorr_file("autocorrelation.txt");
     for (float val : r) {
         autocorr_file << val << '\n';
     }
@@ -152,19 +152,19 @@ float score = 0;
 
   #if 0
     // Guardar els valors en un archiu pot.txt
-    ofstream pot_file("pot.txt", ios::app);
+    ofstream pot_file("pot.txt");
     pot_file << pot << '\n';
     pot_file.close();
 
-    ofstream r1norm_file("r1norm.txt", ios::app);
+    ofstream r1norm_file("r1norm.txt");
     r1norm_file << r1norm << '\n';
     r1norm_file.close();
 
-    ofstream rmaxnorm_file("rmaxnorm.txt", ios::app);
+    ofstream rmaxnorm_file("rmaxnorm.txt");
     rmaxnorm_file << rmaxnorm << '\n';
     rmaxnorm_file.close();
 
-    ofstream zcr_file("zcr.txt", ios::app);
+    ofstream zcr_file("zcr.txt");
     zcr_file << ZCR << '\n';
     zcr_file.close();
   #endif
