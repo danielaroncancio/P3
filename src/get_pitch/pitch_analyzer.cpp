@@ -1,6 +1,7 @@
 /// @file
 
 #include <iostream>
+#include <fstream>
 #include <math.h>
 #include "pitch_analyzer.h"
 
@@ -58,10 +59,19 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
+<<<<<<< HEAD
     //cerr << rmaxnorm << "\t" << this->llindar_rmax << "\n"; 
     /// FET
     float score = 0;
     const float potvalue = -46, r1value = 0.5, zcrvalue= 0.1;
+=======
+    /// \FET
+
+
+float score = 0;
+    const float potvalue = -47, r1value = 0.5, zcrvalue= 0.1;
+
+>>>>>>> 0f481025fc23204f709bf105372da9123337f379
     if (pot < potvalue)
       score += 0.5;
     else if (r1norm < r1value)
@@ -73,6 +83,7 @@ namespace upc {
       score += 0.5;
 
     if (score >= 1)
+<<<<<<< HEAD
       return true;
     else
       return false;
@@ -91,7 +102,27 @@ namespace upc {
         
     }
     return (float) (suma)/(2*(N));
+=======
+      return true; //sordo
+    else
+      return false; //sonoro
+>>>>>>> 0f481025fc23204f709bf105372da9123337f379
   }
+
+//calul del ZCR
+  float PitchAnalyzer::compute_zcr(const vector<float> &x) const {
+    float suma=0;
+    unsigned int N = x.size();
+    
+     for(int i=1; i<N; i++){
+        if((x[i-1]>=0 && x[i]<=0)||(x[i-1]<=0 && x[i]>=0)){
+        suma=suma+1;
+        }
+        
+    }
+    return (float) (suma)/(2*(N));
+}
+
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
     if (x.size() != frameLen)
@@ -106,24 +137,47 @@ namespace upc {
     //Compute correlation
     autocorrelation(x, r);
 
+<<<<<<< HEAD
     //Compute ZCR
     float ZCR= compute_zcr(x);
+=======
+     // Guardar señal del frame
+    ofstream frame_file("frame_signal.txt");
+    for (float sample : x) {
+        frame_file << sample << '\n';
+    }
+    frame_file.close();
+
+    // Guardar autocorrelación
+    ofstream autocorr_file("autocorrelation.txt");
+    for (float val : r) {
+        autocorr_file << val << '\n';
+    }
+    autocorr_file.close();
+
+    //Compute ZCR
+    float ZCR = compute_zcr(x);
+>>>>>>> 0f481025fc23204f709bf105372da9123337f379
 
     vector<float>::const_iterator iR = r.begin(), iRMax = iR;
 
-    /// \TODO 
-
-  ///Localizar el valor maximo, dentro del margen 1/500 Hz y 1/50 Hz
+    /// \TODO FET
 	/// Find the lag of the maximum value of the autocorrelation away from the origin.<br>
 	/// Choices to set the minimum value of the lag are:
 	///    - The first negative value of the autocorrelation.
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
+<<<<<<< HEAD
   /// FET
 
+=======
+    float pot = 10 * log10(r[0]);
+>>>>>>> 0f481025fc23204f709bf105372da9123337f379
     float rMax = r[npitch_min];
     unsigned int lag = npitch_min;
+    float r1norm = r[1] / r[0];
+    
 
     for(unsigned int l = npitch_min; l < npitch_max; l++){
       if(r[l]>rMax){
@@ -132,7 +186,26 @@ namespace upc {
       }
     }
 
-    float pot = 10 * log10(r[0]);
+  float rmaxnorm = r[lag] / r[0];
+
+  #if 0
+    // Guardar els valors en un archiu pot.txt
+    ofstream pot_file("pot.txt");
+    pot_file << pot << '\n';
+    pot_file.close();
+
+    ofstream r1norm_file("r1norm.txt");
+    r1norm_file << r1norm << '\n';
+    r1norm_file.close();
+
+    ofstream rmaxnorm_file("rmaxnorm.txt");
+    rmaxnorm_file << rmaxnorm << '\n';
+    rmaxnorm_file.close();
+
+    ofstream zcr_file("zcr.txt");
+    zcr_file << ZCR << '\n';
+    zcr_file.close();
+  #endif
 
     //You can print these (and other) features, look at them using wavesurfer
     //Based on that, implement a rule for unvoiced
@@ -141,6 +214,10 @@ namespace upc {
     if (r[0] > 0.0F)
       cout << pot << '\t' << r[1]/r[0] << '\t' << r[lag]/r[0] << endl;
 #endif
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 0f481025fc23204f709bf105372da9123337f379
     if (unvoiced(pot, r[1]/r[0], r[lag]/r[0], ZCR))
       return 0;
     else

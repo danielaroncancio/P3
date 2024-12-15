@@ -21,7 +21,6 @@ namespace upc {
 		RECT, 						///< Rectangular window
 		HAMMING						///< Hamming window
 	};
-    float llindar_rmax;
     void set_window(Window type); ///< pre-compute window
 
   private:
@@ -30,7 +29,7 @@ namespace upc {
       samplingFreq, ///< sampling rate (in samples per second). Has to be set in the constructor call
       npitch_min, ///< minimum value of pitch period, in samples
       npitch_max; ///< maximum value of pitch period, in samples
- 
+      float llindar_rmax;
 	///
 	/// Computes correlation from lag=0 to r.size()
 	///

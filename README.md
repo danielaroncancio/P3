@@ -25,10 +25,22 @@ Ejercicios básicos
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
 
+![Captura de pantalla 2024-12-08 a les 19 01 17](https://github.com/user-attachments/assets/662c3a67-2dd2-42da-950d-56c91252c0aa)
+
+Hemos hecho la implentación en MATLAB.
+![Captura de pantalla 2024-12-08 a les 19 09 29](https://github.com/user-attachments/assets/15fa1745-4ded-4400-a706-eb6cd81e8326)
+
+
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
 
+![Captura de pantalla 2024-12-08 a les 20 50 24](https://github.com/user-attachments/assets/10669bb0-6a09-4d11-a306-639f2578e9be)
+
+
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+     
+![Captura de pantalla 2024-12-08 a les 20 51 41](https://github.com/user-attachments/assets/5c3349f3-e7a1-4e24-8f7a-604447b0b2b0)
+
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
 
@@ -114,6 +126,9 @@ Hemos implementado el filtro de mediana de orden 3. Hemos probado con orden 2 y 
     (AMDF), etc.
   * Optimización **demostrable** de los parámetros que gobiernan el estimador, en concreto, de los que
     gobiernan la decisión sonoro/sordo.
+    
+![Captura de pantalla 2024-12-08 a les 21 00 10](https://github.com/user-attachments/assets/49273f9b-9487-4f30-842c-4121e93ad65f)
+
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS%20Techniques.pdf)
