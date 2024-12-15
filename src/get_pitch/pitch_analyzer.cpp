@@ -77,10 +77,6 @@ namespace upc {
     else
       return false;
     
-    // if (rmaxnorm <  this->llindar_rmax){
-    //   return true; //SORDO
-    // }
-    // return false; //SONORO
   }
 
   //calul del ZCR
